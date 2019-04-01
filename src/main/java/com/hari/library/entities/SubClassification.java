@@ -9,7 +9,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 @Entity
@@ -20,9 +20,9 @@ public class SubClassification implements Serializable {
 	private String subClassId;
 	private String subClassName;
 	
-	@JsonBackReference
 	@ManyToOne
 	@JoinColumn(name = "mainClassId", nullable = false)
+	@JsonIgnore
 	MainClassification mainClassification;
 
 	public String getSubClassId() {
